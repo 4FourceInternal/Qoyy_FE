@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { header } from '../cms/content';
+import LogoCompany from '../assets/QOYY GLOBAL-WHITE-LOGO.png';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,7 +17,7 @@ const Header = () => {
             {/* Logo */}
             <Link to="/" className="text-2xl font-bold text-white flex items-center">
               <img
-                src="/src/assets/QOYY GLOBAL-WHITE-LOGO.png"
+                src={LogoCompany}
                 alt={header.brand.logoText}
                 className="h-30 mr-2"
               />

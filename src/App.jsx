@@ -8,6 +8,7 @@ import About from './pages/About';
 import Services from './pages/Services';
 import Info from './pages/Info';
 import Contact from './pages/Contact';
+import Layer from './assets/Layer.png';
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
                   case "/home":
                     return "bg-[url('/src/assets/Perbincangan-Agensi-Kreatif_simple_compose.png')] bg-cover bg-center min-h-screen flex flex-col";
                   case "/":
-                    return "bg-[url('/src/assets/Perbincangan-Agensi-Kreatif_simple_compose.png')] bg-cover bg-center min-h-screen flex flex-col";
+                    return "bg-[url('/src/assets/Gambar_Company_Website.png')] bg-cover bg-center min-h-screen flex flex-col";
                   case "/about":
                     return "bg-[url('/src/assets/Gambar_Company_Website.jpg')] bg-cover bg-center min-h-screen flex flex-col";
                   case "/services":
@@ -42,7 +43,7 @@ function App() {
             {/* Layer.png overlay */}
             <div className="absolute inset-0 z-0">
               <img 
-                src="/src/assets/Layer.png" 
+                src={Layer} 
                 alt="Layer Overlay" 
                 className="w-full h-full object-cover"
               />

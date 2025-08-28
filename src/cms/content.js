@@ -41,7 +41,7 @@ export const footer = {
     label: 'Get a Quote',
     href: '#',
   },
-  copyright: '© 2024 Qoyy Global. All rights reserved.',
+  copyright: 'COPYRIGHT Ⓒ 2025 QOYY GLOBAL (002857086-D)‍\nAll rights reserved.',
 };
 
 export const home = {
@@ -65,9 +65,7 @@ export const about = {
   },
   heading: 'CREATIVE IMPACT, MEASURABLE RESULTS',
   paragraphs: [
-    'Established in 2018, Qoyy Global is an integrated marketing agency based in Kuala Lumpur. We specialize in delivering comprehensive marketing solutions that drive real business results.',
-    'Our client base includes government agencies and corporate brands across various industries. We pride ourselves on understanding the unique challenges and opportunities that each sector presents.',
-    'With a team of experienced professionals, we combine creativity with strategic thinking to create campaigns that not only look great but also deliver measurable outcomes.',
+    'Established in 2018 and based in Kuala Lumpur, we are an integrated marketing agency delivering end-to-end solutions across digital, creative, media, events, and print. With a growing team of 15 passionate professionals, we proudly serve over 20 retained government clients and 10 corporate brands.',
   ],
   approach: {
     title: 'Our Approach',
@@ -201,10 +199,10 @@ export const contact = {
     description:
       "Reach out for projects or possibilities. Let's build something great together with Qoyy Global.",
   },
-  heading: 'Reach Out For Projects Or Possibilities',
-  subheading: "LET'S BUILD SOMETHING GREAT TOGETHER",
+  heading: 'Reach Out For Projects Or Possibilities.',
+  subheading: "LET'S Build Something Great Together",
   lead:
-    "Whether you're looking for partnerships, career opportunities, collaborations, or want to join our team, we're here to help you achieve your goals. Reach out and let's start a conversation about how we can work together to create something amazing.",
+    "Whether you're looking for a trusted partner for your next campaign or exploring new career opportunities, we’d love to hear from you. Drop us a message for collaborations, marketing solutions, or to join our growing team.",
   buttons: {
     whatsapp: { label: '📱 CONTACT US VIA WHATSAPP', href: 'https://wa.me/15551234567' },
     email: { label: '✉️ CONTACT US VIA EMAIL', href: 'mailto:info@qoyy.com' },
