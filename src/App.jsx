@@ -8,6 +8,7 @@ import About from './pages/About';
 import Services from './pages/Services';
 import Info from './pages/Info';
 import Contact from './pages/Contact';
+import Layer from './assets/Layer.png';
 
 function App() {
   return (
@@ -42,7 +43,7 @@ function App() {
             {/* Layer.png overlay */}
             <div className="absolute inset-0 z-0">
               <img 
-                src="/src/assets/Layer.png" 
+                src={Layer} 
                 alt="Layer Overlay" 
                 className="w-full h-full object-cover"
               />

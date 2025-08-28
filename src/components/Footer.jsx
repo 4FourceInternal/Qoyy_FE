@@ -1,6 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { footer } from '../cms/content';
+import LogoCompany from '../assets/QOYY GLOBAL-WHITE-LOGO.png';
+import phoneicon from '../assets/Phone.png';
+import emailicon from '../assets/Letter.png';
+import addressicon from '../assets/Address.png';
 
 const Footer = () => {
   return (
@@ -14,7 +18,7 @@ const Footer = () => {
                 <tr>
                   <td className="pr-2 align-center">
                     <img
-                      src="/src/assets/Address.png"
+                      src={addressicon}
                       alt="Address Icon"
                       className="w-18 h-full inline-block align-middle"
                     />
@@ -26,7 +30,7 @@ const Footer = () => {
                 <tr>
                   <td className="pr-2 align-center">
                     <img
-                      src="/src/assets/Letter.png"
+                      src={emailicon}
                       alt="Email Icon"
                       className="w-18 h-full inline-block align-middle"
                     />
@@ -38,7 +42,7 @@ const Footer = () => {
                 <tr>
                   <td className="pr-2 align-center">
                     <img
-                      src="/src/assets/Phone.png"
+                      src={phoneicon}
                       alt="Phone Icon"
                       className="w-18 h-full inline-block align-middle"
                     />
@@ -55,7 +59,7 @@ const Footer = () => {
           <div className="flex flex-col items-center justify-center space-y-4 h-full">
             <div className="flex items-center">
               <img
-                src="/src/assets/QOYY GLOBAL-WHITE-LOGO.png"
+                src={LogoCompany}
                 alt={footer.companyName}
                 className="h-32"
               />
