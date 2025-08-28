@@ -60,7 +60,7 @@ const Footer = () => {
                 className="h-32"
               />
             </div>
-            <p className="text-sm text-center !mt-0">
+            <p className=" whitespace-pre-line text-sm text-center !mt-0">
               {footer.copyright}
             </p>
           </div>

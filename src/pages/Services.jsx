@@ -84,11 +84,11 @@ const Services = () => {
 
       {/* Content Layer - Above Background */}
       <main className="container-custom min-h-screen flex flex-col relative z-0">
-          <div className="relative flex items-center justify-center rounded-lg mt-8 mb-8 flex-grow">
-          <div className="relative w-full flex flex-col items-center justify-center px-4 h-full">
-            <h2 className="text-center text-white text-xl mb-10">
+         <h2 className="text-center text-white text-xl mt-10">
               OUR SERVICE
             </h2>
+          <div className="relative flex items-center justify-center rounded-lg mt-8 mb-8 flex-grow"> 
+          <div className="relative w-full flex flex-col items-center justify-center px-4 h-full">
             <h1 className="text-center text-2xl md:text-3xl lg:text-4xl font-extrabold text-white mb-6 uppercase">
               {services.heading}
             </h1>

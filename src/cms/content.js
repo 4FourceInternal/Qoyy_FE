@@ -41,7 +41,7 @@ export const footer = {
     label: 'Get a Quote',
     href: '#',
   },
-  copyright: '© 2024 Qoyy Global. All rights reserved.',
+  copyright: 'COPYRIGHT Ⓒ 2025 QOYY GLOBAL (002857086-D)‍\nAll rights reserved.',
 };
 
 export const home = {
@@ -201,10 +201,10 @@ export const contact = {
     description:
       "Reach out for projects or possibilities. Let's build something great together with Qoyy Global.",
   },
-  heading: 'Reach Out For Projects Or Possibilities',
-  subheading: "LET'S BUILD SOMETHING GREAT TOGETHER",
+  heading: 'Reach Out For Projects Or Possibilities.',
+  subheading: "LET'S Build Something Great Together",
   lead:
-    "Whether you're looking for partnerships, career opportunities, collaborations, or want to join our team, we're here to help you achieve your goals. Reach out and let's start a conversation about how we can work together to create something amazing.",
+    "Whether you're looking for a trusted partner for your next campaign or exploring new career opportunities, we’d love to hear from you. Drop us a message for collaborations, marketing solutions, or to join our growing team.",
   buttons: {
     whatsapp: { label: '📱 CONTACT US VIA WHATSAPP', href: 'https://wa.me/15551234567' },
     email: { label: '✉️ CONTACT US VIA EMAIL', href: 'mailto:info@qoyy.com' },

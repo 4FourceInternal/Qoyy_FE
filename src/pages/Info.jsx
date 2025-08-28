@@ -17,6 +17,9 @@ const Info = () => {
       <main className="min-h-screen">
         <div className="container-custom section-padding">
           <div className="max-w-6xl mx-auto">
+             <h2 className="text-center text-white text-xl mb-10">
+                          QUICK INFO
+                        </h2>
             {/* Main Heading */}
             <div className="text-center mb-12">
               <h1 className="text-5xl md:text-7xl font-bold text-white mb-8">
@@ -62,7 +65,7 @@ const Info = () => {
             {/* Additional Info */}
             {!isLoading && (
               <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className=" p-8 rounded-lg">
+                {/* <div className=" p-8 rounded-lg">
                   <h4 className="text-xl font-semibold text-orange-500 mb-4">
                     {info.process.title}
                   </h4>
@@ -77,9 +80,9 @@ const Info = () => {
                       </div>
                     ))}
                   </div>
-                </div>
+                </div> */}
                
-                <div className=" p-8 rounded-lg">
+                {/* <div className=" p-8 rounded-lg">
                   <h4 className="text-xl font-semibold text-orange-500 mb-4">
                     {info.whyUs.title}
                   </h4>
@@ -94,7 +97,7 @@ const Info = () => {
                       </div>
                     ))}
                   </div>
-                </div>
+                </div> */}
               </div>
             )}
           </div>

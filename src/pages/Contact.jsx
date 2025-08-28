@@ -16,17 +16,21 @@ const Contact = () => {
      
       <main className="min-h-screen">
         <div className="container-custom section-padding">
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-8xl mx-auto">
+             <h2 className="text-center text-white text-xl mb-10">
+                          CONTACT US
+                        </h2>
             {/* Main Heading */}
             <div className="text-center mb-12">
-              <h1 className="text-5xl md:text-7xl font-bold text-white mb-8">
-                {contact.heading}
-              </h1>
+             <h1 className="text-3xl md:text-6xl font-bold text-white mb-8 whitespace-nowrap ">
+              {contact.heading}
+            </h1>
+
             </div>
 
             {/* Sub Heading */}
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-6xl font-bold text-orange-500 mb-8">
+              <h2 className="text-4xl md:text-4xl font-bold text-white mb-8">
                 {contact.subheading}
               </h2>
               <p className="text-xl md:text-2xl text-white leading-relaxed max-w-4xl mx-auto">
@@ -57,7 +61,7 @@ const Contact = () => {
                   <div className="text-center">
                     <a
                       href={contact.buttons.email.href}
-                      className="btn-secondary inline-block w-full py-6 text-xl font-bold"
+                      className=" btn-secondary inline-block w-full py-6 text-xl font-bold"
                     >
                       {contact.buttons.email.label}
                     </a>
@@ -68,7 +72,7 @@ const Contact = () => {
                 </div>
 
                 {/* Contact Information */}
-                <div>
+                {/* <div>
                   <h3 className="text-2xl font-bold text-white mb-6">
                     Contact Information
                   </h3>
@@ -109,7 +113,7 @@ const Contact = () => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </>
             )}
           </div>

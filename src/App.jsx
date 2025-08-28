@@ -22,7 +22,7 @@ function App() {
                   case "/home":
                     return "bg-[url('/src/assets/Perbincangan-Agensi-Kreatif_simple_compose.png')] bg-cover bg-center min-h-screen flex flex-col";
                   case "/":
-                    return "bg-[url('/src/assets/Perbincangan-Agensi-Kreatif_simple_compose.png')] bg-cover bg-center min-h-screen flex flex-col";
+                    return "bg-[url('/src/assets/Gambar_Company_Website.png')] bg-cover bg-center min-h-screen flex flex-col";
                   case "/about":
                     return "bg-[url('/src/assets/Gambar_Company_Website.jpg')] bg-cover bg-center min-h-screen flex flex-col";
                   case "/services":
