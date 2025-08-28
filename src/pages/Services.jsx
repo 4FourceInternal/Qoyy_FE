@@ -125,20 +125,17 @@ const Services = () => {
                 <button
                   onClick={nextSlide}
                   disabled={isTransitioning}
-                  className={`absolute right-4 top-1/2 transform -translate-y-1/2 bg-orange-500 hover:bg-orange-600 text-white p-3 rounded-full transition-all duration-200 ${
-                    isTransitioning ? 'opacity-50 cursor-not-allowed scale-95' : 'opacity-100 hover:scale-110'
+                  className={`absolute right-4 top-1/2 transform -translate-y-1/2 bg-gray-200 bg-opacity-90 hover:bg-gray-300 text-gray-800 p-3 rounded-lg transition-all duration-200 shadow-lg ${
+                    isTransitioning ? 'opacity-50 cursor-not-allowed scale-95' : 'opacity-100 hover:scale-105'
                   }`}
                   aria-label="Next service"
                 >
                   <svg
-                    className={`w-6 h-6 transition-transform duration-200 ${
-                      isTransitioning ? 'rotate-180' : 'rotate-0'
-                    }`}
-                    fill="none"
-                    stroke="currentColor"
+                    className="w-6 h-6"
+                    fill="currentColor"
                     viewBox="0 0 24 24"
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
                   </svg>
                 </button>
               </div>

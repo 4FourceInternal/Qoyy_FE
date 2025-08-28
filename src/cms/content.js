@@ -65,9 +65,7 @@ export const about = {
   },
   heading: 'CREATIVE IMPACT, MEASURABLE RESULTS',
   paragraphs: [
-    'Established in 2018, Qoyy Global is an integrated marketing agency based in Kuala Lumpur. We specialize in delivering comprehensive marketing solutions that drive real business results.',
-    'Our client base includes government agencies and corporate brands across various industries. We pride ourselves on understanding the unique challenges and opportunities that each sector presents.',
-    'With a team of experienced professionals, we combine creativity with strategic thinking to create campaigns that not only look great but also deliver measurable outcomes.',
+    'Established in 2018 and based in Kuala Lumpur, we are an integrated marketing agency delivering end-to-end solutions across digital, creative, media, events, and print. With a growing team of 15 passionate professionals, we proudly serve over 20 retained government clients and 10 corporate brands.',
   ],
   approach: {
     title: 'Our Approach',

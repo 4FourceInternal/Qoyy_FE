@@ -4,6 +4,10 @@ import LoadingSkeleton from '../components/LoadingSkeleton';
 import useCMSData from '../hooks/useCMSData';
 import { info } from '../cms/content';
 
+// Import background image and layer overlay
+import quickInfoBgImg from '../assets/quickInfo-bg.png';
+import layerImg from '../assets/Layer.png';
+
 const Info = () => {
   const { data, isLoading, error } = useCMSData('info');
 
@@ -13,8 +17,26 @@ const Info = () => {
         <title>{info.seo.title}</title>
         <meta name="description" content={info.seo.description} />
       </Helmet>
-     
-      <main className="min-h-screen">
+
+      {/* Full Page Background Layer */}
+      <div className="fixed inset-0 w-full h-full overflow-hidden -z-10">
+        <div
+          className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${quickInfoBgImg})`
+          }}
+        />
+        {/* Layer.png overlay */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src={layerImg}
+            alt="Layer Overlay"
+            className="w-full h-full object-cover"
+          />
+        </div>
+      </div>
+
+      <main className="min-h-screen relative z-0">
         <div className="container-custom section-padding">
           <div className="max-w-6xl mx-auto">
              <h2 className="text-center text-white text-xl mb-10">
