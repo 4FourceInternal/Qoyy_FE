@@ -1,13 +1,68 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { header } from '../cms/content';
+import useCMSData from '../hooks/useCMSData';
+import * as cmsService from '../services/cmsService';
 import LogoCompany from '../assets/QOYY GLOBAL-WHITE-LOGO.png';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const { data: global, loading, error } = useCMSData('global');
+
+
+
+
 
   const isActive = (path) => location.pathname === path;
+
+  // Use CMS data or fallback to local content
+  // Check if header component exists and has data, otherwise use fallback
+  const hasHeaderData = global?.header && 
+    global.header.brand && 
+    global.header.navLinks && 
+    Array.isArray(global.header.navLinks) && 
+    global.header.navLinks.length > 0;
+
+  const header = hasHeaderData ? global.header : {
+    brand: {
+      logoText: 'Qoyy Global'
+    },
+    navLinks: [
+      { path: '/about', label: 'About Us' },
+      { path: '/services', label: 'Our Service' },
+      { path: '/info', label: 'Quick Info' },
+      { path: '/contact', label: 'Contact Us' }
+    ]
+  };
+
+
+
+  if (loading) {
+    return (
+      <header className="bg-transparent top-0 z-50 h-32">
+        <div className="container-custom h-full">
+          <div className="flex items-center justify-center h-full">
+            <div className="text-white text-lg">Loading...</div>
+          </div>
+        </div>
+      </header>
+    );
+  }
+
+  if (error) {
+    return (
+      <header className="bg-transparent top-0 z-50 h-32">
+        <div className="container-custom h-full">
+          <div className="flex items-center justify-center h-full">
+            <div className="text-white text-lg">
+              Error loading header
+
+            </div>
+          </div>
+        </div>
+      </header>
+    );
+  }
 
   return (
     <header className="bg-transparent top-0 z-50 h-32">
@@ -18,14 +73,14 @@ const Header = () => {
             <Link to="/" className="text-2xl font-bold text-white flex items-center">
               <img
                 src={LogoCompany}
-                alt={header.brand.logoText}
+                alt={header?.brand?.logoText || 'Qoyy Global'}
                 className="h-30 mr-2"
               />
             </Link>
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex space-x-4">
-              {header.navLinks.filter(link => link.path !== '/').map((link) => (
+              {header?.navLinks?.filter(link => link.path !== '/').map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
@@ -73,16 +128,16 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden bg-gray-800 border-t border-gray-700">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              {header.navLinks.filter(link => link.path !== '/').map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  onClick={() => setIsMenuOpen(false)}
-                  className="block px-3 py-2 rounded-md text-base font-medium bg-orange-500 text-white hover:bg-orange-600 transition-colors duration-200"
-                >
-                  {link.label}
-                </Link>
-              ))}
+                          {header?.navLinks?.filter(link => link.path !== '/').map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                onClick={() => setIsMenuOpen(false)}
+                className="block px-3 py-2 rounded-md text-base font-medium bg-orange-500 text-white hover:bg-orange-600 transition-colors duration-200"
+              >
+                {link.label}
+              </Link>
+            ))}
             </div>
           </div>
         )}
