@@ -1,17 +1,53 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { home } from '../cms/content';
+import useCMSData from '../hooks/useCMSData';
+import * as cmsService from '../services/cmsService';
 
 // Import background image and layer overlay
 import agencyDiscussionImg from '../assets/Perbincangan-Agensi-Kreatif_simple_compose.png';
 import layerImg from '../assets/Layer.png';
 
 const Home = () => {
+  const { data: home, loading, error } = useCMSData('home');
+
+
+
+
+
+
+
+  // Show loading state
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-white text-2xl">Loading...</div>
+      </div>
+    );
+  }
+
+  // Show error state
+  if (error) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-white text-2xl">
+          Error loading content
+          
+        </div>
+      </div>
+    );
+  }
+
+  // Use CMS data or fallback to local content
+  const seo = home?.seo || { title: 'Qoyy Global - Marketing Made Simple', description: 'Marketing made simple, all under one roof. Qoyy Global provides innovative solutions for your business.' };
+  const hero = home?.hero || { title1: 'MARKETING', title2: 'ALL UNDER ONE ROOF' };
+
+
+
   return (
     <>
       <Helmet>
-        <title>{home.seo.title}</title>
-        <meta name="description" content={home.seo.description} />
+        <title>{seo?.metaTitle || seo?.title || 'Qoyy Global - Marketing Made Simple'}</title>
+        <meta name="description" content={seo?.metaDescription || seo?.description || 'Marketing made simple, all under one roof. Qoyy Global provides innovative solutions for your business.'} />
       </Helmet>
 
       {/* Full Page Background Layer */}
@@ -33,26 +69,19 @@ const Home = () => {
       </div>
 
       <main className="container-custom relative z-0">
+
+
         {/* Hero Section */}
         <div className="relative h-screen flex items-center">
-          {/* <div className="absolute inset-0 z-0">
-            <img
-              src={home.hero.backgroundImage}
-              alt="Marketing Team"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-black bg-opacity-60"></div>
-          </div> */}
-         
           <div className="relative z-10 text-white mb-32">
             <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold mb-2">
-              MARKETING
+              {hero.title1 || 'MARKETING'}
             </h1>
             <h2 className="text-6xl md:text-8xl lg:text-9xl font-bold mb-4">
               MADE SIMPLE
             </h2>
             <h3 className="text-4xl md:text-5xl lg:text-6xl font-normal">
-              {home.hero.title2}
+              {hero.title2 || 'ALL UNDER ONE ROOF'}
             </h3>
           </div>
         </div>

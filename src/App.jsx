@@ -8,6 +8,7 @@ import About from './pages/About';
 import Services from './pages/Services';
 import Info from './pages/Info';
 import Contact from './pages/Contact';
+
 import Layer from './assets/Layer.png';
 
 function App() {
@@ -64,6 +65,7 @@ function App() {
           </div>
           </div>
           <Footer />
+
         </div>
       </Router>
     </HelmetProvider>
