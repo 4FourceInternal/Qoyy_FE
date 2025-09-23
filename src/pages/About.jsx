@@ -2,6 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import useCMSData from '../hooks/useCMSData';
 import * as cmsService from '../services/cmsService';
+import { getImageUrl } from '../utils/imageUtils';
 
 // Import background image and layer overlay
 import companyWebsiteImg from '../assets/Gambar_Company_Website.jpg';
@@ -9,6 +10,7 @@ import layerImg from '../assets/Layer.png';
 
 const About = () => {
   const { data: about, loading, error } = useCMSData('about');
+
 
 
 
@@ -67,7 +69,8 @@ const About = () => {
   
   const quote = about?.quote || '"OUR JOURNEY OF GROWTH IS BUILT ON SHARED SUCCESSES WITH THOSE WE SERVE."';
 
-
+  // Get the background image from Strapi or fallback to local image
+  const backgroundImage = getImageUrl(about?.teamImage) || companyWebsiteImg;
 
   return (
     <>
@@ -81,7 +84,7 @@ const About = () => {
         <div
           className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${companyWebsiteImg})`
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${backgroundImage})`
           }}
         />
         {/* Layer.png overlay */}

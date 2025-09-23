@@ -2,6 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import useCMSData from '../hooks/useCMSData';
 import * as cmsService from '../services/cmsService';
+import { getImageUrl } from '../utils/imageUtils';
 
 // Import background image and layer overlay
 import agencyDiscussionImg from '../assets/Perbincangan-Agensi-Kreatif_simple_compose.png';
@@ -9,6 +10,7 @@ import layerImg from '../assets/Layer.png';
 
 const Home = () => {
   const { data: home, loading, error } = useCMSData('home');
+
 
 
 
@@ -41,7 +43,8 @@ const Home = () => {
   const seo = home?.seo || { title: 'Qoyy Global - Marketing Made Simple', description: 'Marketing made simple, all under one roof. Qoyy Global provides innovative solutions for your business.' };
   const hero = home?.hero || { title1: 'MARKETING', title2: 'ALL UNDER ONE ROOF' };
 
-
+  // Get the background image from Strapi or fallback to local image
+  const backgroundImage = getImageUrl(home?.hero?.backgroundImage) || agencyDiscussionImg;
 
   return (
     <>
@@ -55,7 +58,7 @@ const Home = () => {
         <div
           className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${agencyDiscussionImg})`
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${backgroundImage})`
           }}
         />
         {/* Layer.png overlay */}

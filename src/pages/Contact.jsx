@@ -2,6 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import useCMSData from '../hooks/useCMSData';
 import * as cmsService from '../services/cmsService';
+import { getImageUrl } from '../utils/imageUtils';
 
 // Import background image and layer overlay
 import contactUsImg from '../assets/contactUs.png';
@@ -9,6 +10,7 @@ import layerImg from '../assets/Layer.png';
 
 const Contact = () => {
   const { data: contact, loading, error } = useCMSData('contact');
+
 
 
 
@@ -42,6 +44,9 @@ const Contact = () => {
   const heading = contact?.heading || 'Reach Out For Projects Or Possibilities.';
   const subheading = contact?.subheading || 'LET\'S Build Something Great Together';
   const lead = contact?.lead || 'Whether you\'re looking for a trusted partner for your next campaign or exploring new career opportunities, we\'d love to hear from you. Drop us a message for collaborations, marketing solutions, or to join our growing team.';
+
+  // Get the background image from Strapi or fallback to local image
+  const backgroundImage = getImageUrl(contact?.seo?.shareImage) || contactUsImg;
   
   // Handle CMS data structure for buttons - Fully Dynamic from CMS
   let buttons = contact?.buttons;
@@ -171,7 +176,7 @@ const Contact = () => {
         <div
           className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${contactUsImg})`
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${backgroundImage})`
           }}
         />
         {/* Layer.png overlay */}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
 import useCMSData from '../hooks/useCMSData';
+import { getImageUrl } from '../utils/imageUtils';
 
 // Import background images
 import companyWebsiteImg from '../assets/Gambar_Company_Website.jpg';
@@ -71,25 +72,6 @@ const Services = () => {
     ];
   }, [services?.cards]);
 
-  // Helper function to get full image URL from Strapi
-  const getImageUrl = (imageData) => {
-    if (!imageData) return null;
-    
-    // If it's already a string (local fallback), return as is
-    if (typeof imageData === 'string') return imageData;
-    
-    // If it's a Strapi image object, construct the full URL
-    if (imageData.url) {
-      // Check if it's already a full URL
-      if (imageData.url.startsWith('http')) {
-        return imageData.url;
-      }
-      // Construct full URL from Strapi base
-      return `http://localhost:1337${imageData.url}`;
-    }
-    
-    return null;
-  };
 
   const nextSlide = () => {
     if (isTransitioning || !serviceSlides || serviceSlides.length === 0) return;

@@ -2,6 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import useCMSData from '../hooks/useCMSData';
 import * as cmsService from '../services/cmsService';
+import { getImageUrl } from '../utils/imageUtils';
 
 // Import background image and layer overlay
 import quickInfoBgImg from '../assets/quickInfo-bg.png';
@@ -9,6 +10,7 @@ import layerImg from '../assets/Layer.png';
 
 const Info = () => {
   const { data: info, loading, error } = useCMSData('info');
+
 
 
 
@@ -41,6 +43,9 @@ const Info = () => {
   const seo = info?.seo || { title: 'Quick Info - Qoyy Global', description: 'Answers for every question. Explore our services, process, and support for your marketing and creative needs.' };
   const heading = info?.heading || 'ANSWERS FOR EVERY QUESTION';
   const lead = info?.lead || 'Explore our services, process, and support for your marketing and creative needs.';
+
+  // Get the background image from Strapi or fallback to local image
+  const backgroundImage = getImageUrl(info?.backgroundImage) || quickInfoBgImg;
   
   // Handle CMS data structure for FAQs
   let faqs = info?.faqs || [];
@@ -108,7 +113,7 @@ const Info = () => {
         <div
           className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${quickInfoBgImg})`
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${backgroundImage})`
           }}
         />
         {/* Layer.png overlay */}
