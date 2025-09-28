@@ -35,6 +35,11 @@ const Header = () => {
     ]
   };
 
+  // Debug logging for mobile navigation
+  console.log('Header data:', header);
+  console.log('Nav links:', header?.navLinks);
+  console.log('Is menu open:', isMenuOpen);
+
 
 
   if (loading) {
@@ -65,7 +70,7 @@ const Header = () => {
   }
 
   return (
-    <header className="bg-transparent top-0 z-50 h-32">
+    <header className="bg-transparent top-0 z-50 h-32 relative">
       <div className="container-custom h-full">
         <div className="flex flex-col justify-between h-full">
           <div className="flex items-center justify-between flex-1">
@@ -93,7 +98,10 @@ const Header = () => {
 
             {/* Mobile menu button */}
             <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              onClick={() => {
+                console.log('Hamburger clicked, isMenuOpen:', isMenuOpen);
+                setIsMenuOpen(!isMenuOpen);
+              }}
               className="md:hidden p-2 text-gray-300 hover:text-white"
             >
               <svg
@@ -123,25 +131,28 @@ const Header = () => {
           {/* Ticker line (white, no animation, no content) */}
           <div className="w-full h-1 bg-white mb-1"></div>
         </div>
+      </div>
 
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="md:hidden bg-gray-800 border-t border-gray-700">
-            <div className="px-2 pt-2 pb-3 space-y-1">
-                          {header?.navLinks?.filter(link => link.path !== '/').map((link) => (
+      {/* Mobile Navigation - Moved outside container for proper positioning */}
+      {isMenuOpen && (
+        <div className="md:hidden bg-gray-800 border-t border-gray-700 absolute top-full left-0 right-0 z-50">
+          <div className="px-4 pt-2 pb-3 space-y-1">
+            {header?.navLinks?.filter(link => link.path !== '/').map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                onClick={() => setIsMenuOpen(false)}
-                className="block px-3 py-2 rounded-md text-base font-medium bg-orange-500 text-white hover:bg-orange-600 transition-colors duration-200"
+                onClick={() => {
+                  console.log('Mobile nav link clicked:', link.path);
+                  setIsMenuOpen(false);
+                }}
+                className="block px-3 py-2 rounded-md text-base font-medium bg-orange-500 text-white hover:bg-orange-600 transition-colors duration-200 cursor-pointer"
               >
                 {link.label}
               </Link>
             ))}
-            </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </header>
   );
 };
