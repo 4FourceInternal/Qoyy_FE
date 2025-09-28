@@ -89,7 +89,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center items-center text-center">
           {/* Contact Information */}
           <div className="flex flex-col items-center justify-center h-full w-full">
-            <table className="w-auto text-left text-sm">
+            <table className="w-auto text-center md:text-left text-sm">
               <tbody>
                 <tr>
                   <td className="pr-2 align-center">
@@ -146,7 +146,7 @@ const Footer = () => {
           </div>
 
           {/* Navigation Links */}
-          <div className="flex flex-col items-end gap-2 justify-evenly h-full">
+          <div className="flex flex-col items-center md:items-end gap-2 justify-evenly h-full">
             {quickLinks.filter(link => link.path !== '/').map((link) => (
               <Link 
                 key={link.path}

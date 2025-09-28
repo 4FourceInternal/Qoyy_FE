@@ -32,7 +32,7 @@ const Services = () => {
       return cards.map((card, index) => ({
         title: card.title || `Service ${index + 1}`,
         description: card.description || 'Service description will appear here.',
-        features: Array.isArray(card.features) ? card.features : ['Feature 1', 'Feature 2', 'Feature 3', 'Feature 4'],
+        features: Array.isArray(card.features) ? card.features : [],
         backgroundImage: card.backgroundImage || null
       }));
     }
