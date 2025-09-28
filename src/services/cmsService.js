@@ -7,6 +7,7 @@ const cmsApi = axios.create({
   timeout: CMS_CONFIG.API_TIMEOUT,
   headers: {
     'Content-Type': 'application/json',
+    // ...CMS_CONFIG.authHeader, // Include API token if available
   },
 });
 
