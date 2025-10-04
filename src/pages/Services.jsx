@@ -136,12 +136,12 @@ const Services = () => {
 
       {/* Content Layer - Above Background */}
       <main className="container-custom min-h-screen flex flex-col relative z-0">
-        <h2 className="text-center text-white text-xl mt-10">
+        <h2 className="text-center text-white text-xl mt-10 font-open-sans">
           OUR SERVICE
         </h2>
         <div className="relative flex items-center justify-center rounded-lg mt-8 mb-8 flex-grow"> 
           <div className="relative w-full flex flex-col items-center justify-center px-4 h-full">
-            <h1 className="text-center text-2xl md:text-3xl lg:text-4xl font-extrabold text-white mb-6 uppercase">
+            <h1 className="text-center text-2xl md:text-3xl lg:text-4xl font-extrabold text-white mb-6 uppercase font-open-sans">
               {heading}
             </h1>
            
@@ -152,10 +152,10 @@ const Services = () => {
                   <div className={`text-center transition-all duration-700 ease-in-out transform ${
                     isTransitioning ? 'opacity-0 translate-x-10' : 'opacity-100 translate-x-0'
                   }`}>
-                    <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 transition-all duration-500 ease-in-out">
+                    <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 transition-all duration-500 ease-in-out font-open-sans">
                       {serviceSlides[currentSlide]?.title || 'Service Title'}
                     </h3>
-                    <p className="text-lg text-white mb-6 leading-relaxed transition-all duration-600 ease-in-out">
+                    <p className="text-lg text-white mb-6 leading-relaxed transition-all duration-600 ease-in-out font-open-sans">
                       {serviceSlides[currentSlide]?.description || 'Service description will appear here.'}
                     </p>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -169,7 +169,7 @@ const Services = () => {
                             style={{ transitionDelay: `${index * 100}ms` }}
                           >
                             <span className="text-orange-500 mr-3 text-xl">✓</span>
-                            <span className="text-lg">{feature}</span>
+                            <span className="text-lg font-open-sans">{feature}</span>
                           </div>
                         ))
                         : 
@@ -182,7 +182,7 @@ const Services = () => {
                             style={{ transitionDelay: `${index * 100}ms` }}
                           >
                             <span className="text-orange-500 mr-3 text-xl">✓</span>
-                            <span className="text-lg">{feature}</span>
+                            <span className="text-lg font-open-sans">{feature}</span>
                           </div>
                         ))
                       }
@@ -210,10 +210,10 @@ const Services = () => {
               ) : (
                 <div className="relative bg-black bg-opacity-30 rounded-lg p-8 mb-8 h-96 overflow-hidden">
                   <div className="text-center">
-                    <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                    <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 font-open-sans">
                       Loading Services...
                     </h3>
-                    <p className="text-lg text-white">
+                    <p className="text-lg text-white font-open-sans">
                       Please wait while we load the service information.
                     </p>
                   </div>

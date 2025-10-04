@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import useCMSData from '../hooks/useCMSData';
 import * as cmsService from '../services/cmsService';
 import LogoCompany from '../assets/QOYY GLOBAL-WHITE-LOGO.png';
-import phoneicon from '../assets/Phone.png';
-import emailicon from '../assets/Letter.png';
+import phoneicon from '../assets/Phone.svg';
+import emailicon from '../assets/Letter.svg';
 import addressicon from '../assets/Address.png';
 
 const Footer = () => {
@@ -88,15 +88,15 @@ const Footer = () => {
       <div className="container-custom section-padding">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center items-center text-center">
           {/* Contact Information */}
-          <div className="flex flex-col items-center justify-center h-full w-full">
+          <div className="flex flex-col items-center justify-center h-full w-full mt-8">
             <table className="w-auto text-center md:text-left text-sm">
               <tbody>
                 <tr>
-                  <td className="pr-2 align-center">
+                  <td className="align-center">
                     <img
                       src={addressicon}
                       alt="Address Icon"
-                      className="w-18 h-full inline-block align-middle"
+                      className="min-w-6 w-full h-full inline-block align-middle"
                     />
                   </td>
                   <td>
@@ -104,11 +104,11 @@ const Footer = () => {
                   </td>
                 </tr>
                 <tr>
-                  <td className="pr-2 align-center">
+                  <td className="align-center">
                     <img
                       src={emailicon}
                       alt="Email Icon"
-                      className="w-18 h-full inline-block align-middle"
+                      className="min-w-6 w-full h-full inline-block align-middle"
                     />
                   </td>
                   <td>
@@ -116,11 +116,11 @@ const Footer = () => {
                   </td>
                 </tr>
                 <tr>
-                  <td className="pr-2 align-center">
+                  <td className="align-center">
                     <img
                       src={phoneicon}
                       alt="Phone Icon"
-                      className="w-18 h-full inline-block align-middle"
+                      className="min-w-6 w-full h-full inline-block align-middle"
                     />
                   </td>
                   <td>

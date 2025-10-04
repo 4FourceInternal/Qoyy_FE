@@ -40,7 +40,7 @@ function App() {
             }
           >
           {/* Background image */}
-          <div className="bg-black bg-opacity-20 min-h-screen relative w-full">
+          <div className="bg-black bg-opacity-10 min-h-screen relative w-full">
             {/* Layer.png overlay */}
             <div className="absolute inset-0 z-0">
               <img 

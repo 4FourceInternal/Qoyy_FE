@@ -131,15 +131,15 @@ const Info = () => {
         
         <div className="container-custom section-padding">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-center text-white text-xl mb-10">
+            <h2 className="text-center text-white text-xl mb-10 font-open-sans">
               QUICK INFO
             </h2>
             {/* Main Heading */}
             <div className="text-center mb-12">
-              <h1 className="text-5xl md:text-7xl font-bold text-white mb-8">
+              <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 font-open-sans">
                 {heading}
               </h1>
-              <p className="text-xl md:text-2xl text-white">
+              <p className="text-xl md:text-2xl text-white font-open-sans">
                 {lead}
               </p>
             </div>
@@ -148,10 +148,10 @@ const Info = () => {
             <div className="space-y-8">
               {faqs.map((faq, index) => (
                 <div key={index} className=" p-8 rounded-lg">
-                  <h3 className="text-2xl font-bold text-white mb-4">
+                  <h3 className="text-2xl font-bold text-white mb-4 font-open-sans">
                     {faq.question}
                   </h3>
-                  <p className="text-lg text-white leading-relaxed">
+                  <p className="text-lg text-white leading-relaxed font-open-sans">
                     {faq.answer}
                   </p>
                 </div>

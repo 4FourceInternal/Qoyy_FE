@@ -105,7 +105,7 @@ const About = () => {
 
 
           {/* Creative Impact tagline */}
-          <h3 className="text-center text-white text-2xl md:text-3xl lg:text-4xl font-bold mt-4 mb-8 tracking-wide">
+          <h3 className="text-center text-white text-2xl md:text-3xl lg:text-4xl font-bold mt-4 mb-8 tracking-wide font-open-sans">
             {heading}
           </h3>
         {/* Content Section */}
@@ -115,14 +115,14 @@ const About = () => {
 
           {/* Description paragraph */}
           <div className="max-w-4xl mx-auto mb-12">
-            <p className="text-white text-base md:text-lg lg:text-xl text-center leading-relaxed font-normal">
+            <p className="text-white text-base md:text-lg lg:text-xl text-center leading-relaxed font-bold tracking-wide font-open-sans">
               {paragraphText}
             </p>
           </div>
 
           {/* Quote section */}
           <div className="max-w-5xl mx-auto">
-            <p className="text-white text-center text-lg md:text-xl lg:text-2xl font-bold leading-relaxed">
+            <p className="text-white text-center text-lg md:text-xl lg:text-2xl font-extrabold leading-relaxed">
               {quote}
             </p>
           </div>

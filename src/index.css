@@ -28,6 +28,10 @@
   .container-custom {
     @apply max-w-7xl mx-auto;
   }
+  
+  .font-open-sans {
+    font-family: 'Open Sans', sans-serif;
+  }
 }
 
 @layer utilities {
