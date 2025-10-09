@@ -199,7 +199,7 @@ const Contact = () => {
             </h2>
             {/* Main Heading */}
             <div className="text-center mb-12">
-             <h1 className="text-3xl md:text-6xl font-bold text-white mb-8 whitespace-nowrap font-open-sans">
+             <h1 className="text-3xl md:text-6xl font-bold text-white mb-8 whitespace-normal break-words font-open-sans">
               {heading}
             </h1>
 

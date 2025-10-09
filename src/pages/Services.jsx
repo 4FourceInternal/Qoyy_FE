@@ -87,6 +87,20 @@ const Services = () => {
     }, 700);
   };
 
+  const prevSlide = () => {
+    if (isTransitioning || !serviceSlides || serviceSlides.length === 0) return;
+
+    setIsTransitioning(true);
+    setCurrentSlide((prev) => {
+      const prevIndex = prev === 0 ? serviceSlides.length - 1 : prev - 1;
+      return Math.max(0, Math.min(prevIndex, serviceSlides.length - 1));
+    });
+
+    setTimeout(() => {
+      setIsTransitioning(false);
+    }, 700);
+  };
+
   // Show loading state
   if (loading) {
     return (
@@ -148,8 +162,8 @@ const Services = () => {
             {/* Sliding Content Section */}
             <div className="w-full mb-8">
               {serviceSlides && serviceSlides.length > 0 && serviceSlides[currentSlide] ? (
-                <div className="relative bg-black bg-opacity-30 rounded-lg p-8 mb-8 h-96 overflow-hidden">
-                  <div className={`text-center transition-all duration-700 ease-in-out transform ${
+                <div className="relative bg-black bg-opacity-30 rounded-lg p-8 mb-8">
+                  <div className={`text-center transition-all duration-700 ease-in-out transform px-16 sm:px-20 ${
                     isTransitioning ? 'opacity-0 translate-x-10' : 'opacity-100 translate-x-0'
                   }`}>
                     <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 transition-all duration-500 ease-in-out font-open-sans">
@@ -189,6 +203,24 @@ const Services = () => {
                     </div>
                   </div>
                  
+                  {/* Left Arrow */}
+                  <button
+                    onClick={prevSlide}
+                    disabled={isTransitioning}
+                    className={`absolute left-4 top-1/2 transform -translate-y-1/2 bg-gray-200 bg-opacity-90 hover:bg-gray-300 text-gray-800 p-3 rounded-lg transition-all duration-200 shadow-lg ${
+                      isTransitioning ? 'opacity-50 cursor-not-allowed scale-95' : 'opacity-100 hover:scale-105'
+                    }`}
+                    aria-label="Previous service"
+                  >
+                    <svg
+                      className="w-6 h-6"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/>
+                    </svg>
+                  </button>
+
                   {/* Right Arrow */}
                   <button
                     onClick={nextSlide}
@@ -208,7 +240,7 @@ const Services = () => {
                   </button>
                 </div>
               ) : (
-                <div className="relative bg-black bg-opacity-30 rounded-lg p-8 mb-8 h-96 overflow-hidden">
+                <div className="relative bg-black bg-opacity-30 rounded-lg p-8 mb-8">
                   <div className="text-center">
                     <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 font-open-sans">
                       Loading Services...

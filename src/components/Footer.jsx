@@ -5,7 +5,7 @@ import * as cmsService from '../services/cmsService';
 import LogoCompany from '../assets/QOYY GLOBAL-WHITE-LOGO.png';
 import phoneicon from '../assets/Phone.svg';
 import emailicon from '../assets/Letter.svg';
-import addressicon from '../assets/Address.png';
+import addressicon from '../assets/Address.svg';
 
 const Footer = () => {
   const { data: global, loading, error } = useCMSData('global');
@@ -89,46 +89,49 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center items-center text-center">
           {/* Contact Information */}
           <div className="flex flex-col items-center justify-center h-full w-full mt-8">
-            <table className="w-auto text-center md:text-left text-sm">
-              <tbody>
-                <tr>
-                  <td className="align-center">
-                    <img
-                      src={addressicon}
-                      alt="Address Icon"
-                      className="min-w-6 w-full h-full inline-block align-middle"
-                    />
-                  </td>
-                  <td>
-                    {contactInfo.address}
-                  </td>
-                </tr>
-                <tr>
-                  <td className="align-center">
-                    <img
-                      src={emailicon}
-                      alt="Email Icon"
-                      className="min-w-6 w-full h-full inline-block align-middle"
-                    />
-                  </td>
-                  <td>
-                    {contactInfo.email}
-                  </td>
-                </tr>
-                <tr>
-                  <td className="align-center">
-                    <img
-                      src={phoneicon}
-                      alt="Phone Icon"
-                      className="min-w-6 w-full h-full inline-block align-middle"
-                    />
-                  </td>
-                  <td>
-                    {contactInfo.phone}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+            <div className="w-full max-w-md space-y-4">
+              {/* Address */}
+              <div className="flex items-start justify-between gap-4 sm:justify-start">
+                <div className="flex-shrink-0">
+                  <img
+                    src={addressicon}
+                    alt="Address Icon"
+                    className="w-6 h-6 mt-1"
+                  />
+                </div>
+                <div className="flex-1 text-right sm:text-left text-sm leading-relaxed">
+                  {contactInfo.address}
+                </div>
+              </div>
+              
+              {/* Email */}
+              <div className="flex items-start justify-between gap-4 sm:justify-start">
+                <div className="flex-shrink-0">
+                  <img
+                    src={emailicon}
+                    alt="Email Icon"
+                    className="w-6 h-6 mt-1"
+                  />
+                </div>
+                <div className="flex-1 text-right sm:text-left text-sm">
+                  {contactInfo.email}
+                </div>
+              </div>
+              
+              {/* Phone */}
+              <div className="flex items-start justify-between gap-4 sm:justify-start">
+                <div className="flex-shrink-0">
+                  <img
+                    src={phoneicon}
+                    alt="Phone Icon"
+                    className="w-6 h-6 mt-1"
+                  />
+                </div>
+                <div className="flex-1 text-right sm:text-left text-sm">
+                  {contactInfo.phone}
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Logo and Copyright */}
