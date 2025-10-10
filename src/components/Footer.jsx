@@ -96,7 +96,7 @@ const Footer = () => {
                   <img
                     src={addressicon}
                     alt="Address Icon"
-                    className="w-6 h-6 mt-1"
+                    className="w-6 h-6"
                   />
                 </div>
                 <div className="flex-1 text-right sm:text-left text-sm leading-relaxed">
@@ -110,7 +110,7 @@ const Footer = () => {
                   <img
                     src={emailicon}
                     alt="Email Icon"
-                    className="w-6 h-6 mt-1"
+                    className="w-6 h-6"
                   />
                 </div>
                 <div className="flex-1 text-right sm:text-left text-sm">
@@ -124,7 +124,7 @@ const Footer = () => {
                   <img
                     src={phoneicon}
                     alt="Phone Icon"
-                    className="w-6 h-6 mt-1"
+                    className="w-6 h-6"
                   />
                 </div>
                 <div className="flex-1 text-right sm:text-left text-sm">
