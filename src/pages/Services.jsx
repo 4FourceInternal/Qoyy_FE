@@ -26,48 +26,54 @@ const Services = () => {
   // Service content slides - dynamically generated from CMS data
   const serviceSlides = useMemo(() => {
     const cards = services?.cards || [];
-    
+
     if (cards && cards.length > 0) {
       // Use CMS data - exactly as many slides as cards
       return cards.map((card, index) => ({
         title: card.title || `Service ${index + 1}`,
         description: card.description || 'Service description will appear here.',
         features: Array.isArray(card.features) ? card.features : [],
-        backgroundImage: card.backgroundImage || null
+        backgroundImage: card.backgroundImage || null,
+        isCMSImage: true // Flag to identify CMS images
       }));
     }
-    
+
     // Fallback slides only if no CMS data
     return [
       {
         title: 'Media Monitoring',
         description: 'Real-time tracking of brand mentions, sentiment analysis, and competitive intelligence across all media channels.',
         features: ['24/7 brand monitoring', 'Sentiment analysis', 'Crisis detection', 'Competitive insights'],
-        backgroundImage: companyWebsiteImg
+        backgroundImage: companyWebsiteImg,
+        isCMSImage: false
       },
       {
         title: 'Public Relations',
         description: 'Strategic PR campaigns that build brand reputation, manage crises, and create positive media coverage.',
         features: ['Press release distribution', 'Media relations', 'Crisis management', 'Event PR'],
-        backgroundImage: workerStateImg
+        backgroundImage: workerStateImg,
+        isCMSImage: false
       },
       {
         title: 'Strategic Communication',
         description: 'Comprehensive communication strategies that align with your business objectives and target audience.',
         features: ['Message development', 'Stakeholder engagement', 'Content strategy', 'Brand positioning'],
-        backgroundImage: agencyDiscussionImg
+        backgroundImage: agencyDiscussionImg,
+        isCMSImage: false
       },
       {
         title: 'Digital PR',
         description: 'Online reputation management and digital media strategies for the modern digital landscape.',
         features: ['Online reputation management', 'Social media PR', 'Influencer partnerships', 'Digital crisis management'],
-        backgroundImage: quickInfoBgImg
+        backgroundImage: quickInfoBgImg,
+        isCMSImage: false
       },
       {
         title: 'Reporting & Analytics',
         description: 'Comprehensive reporting and analytics to measure the impact and ROI of your PR campaigns.',
         features: ['Monthly reports', 'ROI measurement', 'Performance tracking', 'Strategic insights'],
-        backgroundImage: contactUsImg
+        backgroundImage: contactUsImg,
+        isCMSImage: false
       }
     ];
   }, [services?.cards]);
@@ -135,17 +141,29 @@ const Services = () => {
       {/* Full Page Background Layer - Behind Everything */}
       <div className="fixed inset-0 w-full h-full overflow-hidden -z-10">
         {/* Background Images with Crossfade Animation - Only for actual slides */}
-        {serviceSlides && serviceSlides.length > 0 && serviceSlides.map((slide, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat transition-opacity duration-700 ease-in-out ${
-              index === currentSlide ? 'opacity-100' : 'opacity-0'
-            }`}
-            style={{
-              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${getImageUrl(slide.backgroundImage)})`
-            }}
-          />
-        ))}
+        {serviceSlides && serviceSlides.length > 0 && serviceSlides.map((slide, index) => {
+          // Get the background image URL - handle both CMS and local images
+          const bgImageUrl = slide.isCMSImage 
+            ? getImageUrl(slide.backgroundImage) 
+            : slide.backgroundImage;
+          
+          // Debug log
+          console.log(`Slide ${index} background:`, bgImageUrl);
+          
+          return (
+            <div
+              key={index}
+              className={`absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat transition-opacity duration-700 ease-in-out ${
+                index === currentSlide ? 'opacity-100' : 'opacity-0'
+              }`}
+              style={{
+                backgroundImage: bgImageUrl 
+                  ? `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${bgImageUrl}')`
+                  : 'linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7))'
+              }}
+            />
+          );
+        })}
       </div>
 
       {/* Content Layer - Above Background */}
@@ -153,12 +171,12 @@ const Services = () => {
         <h2 className="text-center text-white text-xl mt-10 font-open-sans">
           OUR SERVICE
         </h2>
-        <div className="relative flex items-center justify-center rounded-lg mt-8 mb-8 "> 
+        <div className="relative flex items-center justify-center rounded-lg mt-8 mb-8 ">
           <div className="relative w-full flex flex-col items-center justify-center px-4 h-full">
             <h1 className="text-center text-2xl md:text-3xl lg:text-4xl font-extrabold text-white mb-6 uppercase font-open-sans">
               {heading}
             </h1>
-           
+
             {/* Sliding Content Section */}
             <div className="w-full mb-8">
               {serviceSlides && serviceSlides.length > 0 && serviceSlides[currentSlide] ? (
@@ -173,7 +191,7 @@ const Services = () => {
                       {serviceSlides[currentSlide]?.description || 'Service description will appear here.'}
                     </p>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      {serviceSlides[currentSlide] && Array.isArray(serviceSlides[currentSlide].features) ? 
+                      {serviceSlides[currentSlide] && Array.isArray(serviceSlides[currentSlide].features) ?
                         serviceSlides[currentSlide].features.map((feature, index) => (
                           <div
                             key={index}
@@ -186,7 +204,7 @@ const Services = () => {
                             <span className="text-lg font-open-sans">{feature}</span>
                           </div>
                         ))
-                        : 
+                        :
                         ['Feature 1', 'Feature 2', 'Feature 3', 'Feature 4'].map((feature, index) => (
                           <div
                             key={index}
@@ -202,7 +220,7 @@ const Services = () => {
                       }
                     </div>
                   </div>
-                 
+
                   {/* Left Arrow */}
                   <button
                     onClick={prevSlide}
@@ -251,7 +269,7 @@ const Services = () => {
                   </div>
                 </div>
               )}
-             
+
               {/* Slide Indicators */}
               {serviceSlides && serviceSlides.length > 0 && (
                 <div className="flex justify-center space-x-2">
