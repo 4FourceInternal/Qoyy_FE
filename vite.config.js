@@ -6,10 +6,8 @@ export default defineConfig({
   plugins: [react()],
 
   server: {
-    host: true,
-    allowedHosts: ['qoyy-backend.portalhub.top'], // or 'all' or true
-    proxy: {
-      '/api': 'https://qoyy-backend.portalhub.top',
-    },
+    host: '0.0.0.0', // allow connections from outside
+    port: 5173,      // your local dev/serve port
+    allowedHosts: ['qoyyglobal.com', 'www.qoyyglobal.com'], // ✅ add this
   },
 })
