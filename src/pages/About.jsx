@@ -11,12 +11,11 @@ import layerImg from '../assets/Layer.png';
 const About = () => {
   const { data: about, loading, error } = useCMSData('about');
 
-
-
-
-
-
-
+  const seo = about?.seo || { title: 'About Us - Qoyy Global', description: "Creative impact, measurable results. Learn about Qoyy Global's journey of growth built on shared successes." };
+  console.log('About loading:', loading);
+  console.log('About error:', error);
+  console.log('About data:', about);
+  console.log('About SEO Data:', seo);
 
   // Show loading state
   if (loading) {
@@ -40,7 +39,6 @@ const About = () => {
   }
 
   // Use CMS data or fallback to local content
-  const seo = about?.seo || { title: 'About Us - Qoyy Global', description: 'Creative impact, measurable results. Learn about Qoyy Global\'s journey of growth built on shared successes.' };
   const heading = about?.heading || 'CREATIVE IMPACT, MEASURABLE RESULTS.';
   
   // Handle both CMS data structure and fallback
@@ -79,6 +77,11 @@ const About = () => {
         <meta name="description" content={seo?.metaDescription || seo?.description || 'Creative impact, measurable results. Learn about Qoyy Global\'s journey of growth built on shared successes.'} />
       </Helmet>
 
+      {/* Display metaDescription visibly on the page for debugging/demonstration */}
+      <div className="text-white text-center">
+        <span className="font-semibold"></span>{seo?.metaDescription || seo?.description || 'No description available.'}
+      </div>
+
       {/* Full Page Background Layer */}
       <div className="fixed inset-0 w-full h-full overflow-hidden -z-10">
         <div
@@ -98,9 +101,7 @@ const About = () => {
       </div>
 
       <main className="container-custom relative z-0 min-h-screen flex flex-col">
-                <h2 className="text-center text-white text-lg md:text-xl mt-6 tracking-wider">
-          ABOUT US
-        </h2>
+          
         
 
 

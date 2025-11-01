@@ -40,7 +40,14 @@ const Info = () => {
   }
 
   // Use CMS data or fallback to local content
-  const seo = info?.seo || { title: 'Quick Info - Qoyy Global', description: 'Answers for every question. Explore our services, process, and support for your marketing and creative needs.' };
+  const seo = info?.seo || { title: 'Quick Info - Qoyy Global'};
+  
+  // Debug logging to check SEO data
+  console.log('Info loading:', loading);
+  console.log('Info error:', error);
+  console.log('Info data:', info);
+  console.log('Info SEO Data:', seo);
+  
   const heading = info?.heading || 'ANSWERS FOR EVERY QUESTION';
   const lead = info?.lead || 'Explore our services, process, and support for your marketing and creative needs.';
 
@@ -105,8 +112,14 @@ const Info = () => {
     <>
       <Helmet>
         <title>{seo?.metaTitle || seo?.title || 'Quick Info - Qoyy Global'}</title>
-        <meta name="description" content={seo?.metaDescription || seo?.description || 'Answers for every question. Explore our services, process, and support for your marketing and creative needs.'} />
+        <meta name="description" content={seo?.metaDescription } />
       </Helmet>
+
+      {/* Display metaDescription visibly on the page for debugging/demonstration */}
+      <div className="text-center mt-4 p-2">
+        <span className="font-semibold text-white"></span>
+        <span className="text-center text-white text-xl mb-10">{seo?.metaDescription || seo?.description || 'No description available.'}</span>
+      </div>
 
       {/* Full Page Background Layer */}
       <div className="fixed inset-0 w-full h-full overflow-hidden -z-10">
@@ -132,7 +145,7 @@ const Info = () => {
         <div className="container-custom section-padding">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-center text-white text-xl mb-10 font-open-sans">
-              QUICK INFO
+            
             </h2>
             {/* Main Heading */}
             <div className="text-center mb-12">

@@ -123,6 +123,13 @@ const Services = () => {
 
   // Use CMS data or fallback to local content
   const seo = services?.seo || { title: 'Our Service - Qoyy Global', description: 'Solutions that drive brands forward. Media monitoring and public relations services that keep your brand informed, relevant, and strategically visible.' };
+  
+  // Debug logging to check SEO data
+  console.log('Services loading:', loading);
+  console.log('Services error:', error);
+  console.log('Services data:', services);
+  console.log('Services SEO Data:', seo);
+  
   const heading = services?.heading || 'SOLUTIONS THAT DRIVE BRANDS FORWARD';
 
   return (
@@ -131,6 +138,12 @@ const Services = () => {
         <title>{seo?.metaTitle || seo?.title || 'Our Service - Qoyy Global'}</title>
         <meta name="description" content={seo?.metaDescription || seo?.description || 'Solutions that drive brands forward. Media monitoring and public relations services that keep your brand informed, relevant, and strategically visible.'} />
       </Helmet>
+
+      {/* Display metaDescription visibly on the page for debugging/demonstration */}
+      <div className="text-center mt-4 p-2">
+        <span className="font-semibold text-white"></span>
+        <span className="text-center text-white text-xl mb-10">{seo?.metaDescription || seo?.description || 'No description available.'}</span>
+      </div>
 
       {/* Full Page Background Layer - Behind Everything */}
       <div className="fixed inset-0 w-full h-full overflow-hidden -z-10">
@@ -147,12 +160,10 @@ const Services = () => {
           />
         ))}
       </div>
-
+        
       {/* Content Layer - Above Background */}
       <main className="container-custom min-h-screen flex flex-col relative z-0">
-        <h2 className="text-center text-white text-xl mt-10 font-open-sans">
-          OUR SERVICE
-        </h2>
+       
         <div className="relative flex items-center justify-center rounded-lg mt-8 mb-8 "> 
           <div className="relative w-full flex flex-col items-center justify-center px-4 h-full">
             <h1 className="text-center text-2xl md:text-3xl lg:text-4xl font-extrabold text-white mb-6 uppercase font-open-sans">
