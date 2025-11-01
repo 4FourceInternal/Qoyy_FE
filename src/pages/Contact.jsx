@@ -181,7 +181,7 @@ const Contact = () => {
       {/* Display metaDescription visibly on the page for debugging/demonstration */}
       <div className="text-center mt-4 p-2">
         <span className="font-semibold text-white"></span>
-        <span className="text-white">{seo?.metaDescription || seo?.description || 'No description available.'}</span>
+        <span className="text-center text-white text-xl mb-10">{seo?.metaDescription || seo?.description || 'No description available.'}</span>
       </div>
 
       {/* Full Page Background Layer */}

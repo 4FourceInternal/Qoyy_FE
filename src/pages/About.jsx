@@ -79,7 +79,8 @@ const About = () => {
 
       {/* Display metaDescription visibly on the page for debugging/demonstration */}
       <div className="text-white text-center">
-        <span className="font-semibold"></span>{seo?.metaDescription || seo?.description || 'No description available.'}
+        <span className="font-semibold text-white"></span>
+        <span className="text-center text-white text-xl mb-10">{seo?.metaDescription || seo?.description || 'No description available.'}</span>
       </div>
 
       {/* Full Page Background Layer */}
