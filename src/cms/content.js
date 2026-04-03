@@ -41,7 +41,7 @@ export const footer = {
     label: 'Get a Quote',
     href: '#',
   },
-  copyright: 'COPYRIGHT Ⓒ 2025 QOYY GLOBAL (002857086-D)‍\nAll rights reserved.',
+  copyright: 'COPYRIGHT Ⓒ 2026 QOYY GLOBAL (002857086-D)‍\nAll rights reserved.',
 };
 
 export const home = {

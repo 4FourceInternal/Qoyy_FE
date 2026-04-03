@@ -17,7 +17,7 @@ const Footer = () => {
   // Use CMS data or fallback to local content
   const footer = global?.footer || {
     companyName: 'Qoyy Global',
-    copyright: 'COPYRIGHT Ⓒ 2025 QOYY GLOBAL (002857086-D)‍\nAll rights reserved.',
+    copyright: 'COPYRIGHT Ⓒ 2026 QOYY GLOBAL (002857086-D)‍\nAll rights reserved.',
     quickLinks: [
       { path: '/about', label: 'About Us' },
       { path: '/services', label: 'Our Service' },

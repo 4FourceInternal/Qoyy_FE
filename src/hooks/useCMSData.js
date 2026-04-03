@@ -34,6 +34,9 @@ export const useCMSData = (contentType) => {
           case 'global':
             content = await cmsService.getGlobalContent();
             break;
+          case 'client':
+            content = await cmsService.getClientContent();
+            break;
           default:
             throw new Error(`Unknown content type: ${contentType}`);
         }

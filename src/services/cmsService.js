@@ -68,8 +68,13 @@ const fetchContent = async (endpoint, cacheKey) => {
   } else if (endpoint === '/service-page-content') {
     populateParam = 'populate[seo][populate]=*&populate[cards][populate]=*';
   }
+ if (endpoint === '/something') {
+  // code
+} else if (endpoint === '/client') {
+  populateParam = 'populate[Clients_logo][populate]=Client_image';
+}
 
-  try {
+    try {
     // Add timestamp to prevent caching
     const timestamp = Date.now();
     const cacheBuster = `&_t=${timestamp}`;
@@ -142,6 +147,15 @@ export const getContactContent = async () => {
   }
   
   return await fetchContent('/contact', 'contact');
+}; 
+
+// Client page content
+export const getClientContent = async () => {
+  if (!CMS_CONFIG.ENABLE_CMS) {
+    throw new Error('CMS is disabled. Please enable CMS integration.');
+  }
+  
+  return await fetchContent('/client', 'client');
 };
 
 // Global content (header, footer)
@@ -167,4 +181,5 @@ export default {
   getInfoContent,
   getContactContent,
   getGlobalContent,
+  getClientContent
 };

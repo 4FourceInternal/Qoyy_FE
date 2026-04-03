@@ -8,6 +8,7 @@ import About from './pages/About';
 import Services from './pages/Services';
 import Info from './pages/Info';
 import Contact from './pages/Contact';
+import OurClient from './pages/OurClient';
 
 import Layer from './assets/Layer.png';
 
@@ -33,6 +34,8 @@ function App() {
                     return "bg-[url('/src/assets/quickInfo-bg.png')] bg-cover bg-center min-h-screen flex flex-col";
                   case "/contact":
                     return "bg-[url('/src/assets/contactUs.png')] bg-cover bg-center min-h-screen flex flex-col";
+                  case "/our-clients":
+                    return "bg-[url('/src/assets/Gambar_Company_Website.jpg')] bg-cov er bg-center min-h-screen flex flex-col";
                   default:
                     return "";
                 }
@@ -59,6 +62,7 @@ function App() {
                   <Route path="/services" element={<Services />} />
                   <Route path="/info" element={<Info />} />
                   <Route path="/contact" element={<Contact />} />
+                  <Route path="/ourclients" element={<OurClient />} />
                 </Routes>
               </div>
             </div>
