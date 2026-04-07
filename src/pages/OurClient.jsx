@@ -50,7 +50,6 @@ const OurClient = () => {
       <main className="container-custom relative z-0 min-h-screen flex flex-col">
 
         <h2 className="text-center text-white text-lg md:text-xl mt-6 tracking-wider">
-          ABOUT US
         </h2>
 
         <h2 className="text-center text-white text-lg md:text-xl mt-2 tracking-wider uppercase">
