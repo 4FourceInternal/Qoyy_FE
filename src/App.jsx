@@ -35,7 +35,8 @@ function App() {
                   case "/contact":
                     return "bg-[url('/src/assets/contactUs.png')] bg-cover bg-center min-h-screen flex flex-col";
                   case "/our-clients":
-                    return "bg-[url('/src/assets/Gambar_Company_Website.jpg')] bg-cov er bg-center min-h-screen flex flex-col";
+                  case "/ourclients":
+                    return "bg-[url('/src/assets/Gambar_Company_Website.jpg')] bg-cover bg-center min-h-screen flex flex-col";
                   default:
                     return "";
                 }
@@ -62,6 +63,7 @@ function App() {
                   <Route path="/services" element={<Services />} />
                   <Route path="/info" element={<Info />} />
                   <Route path="/contact" element={<Contact />} />
+                  <Route path="/our-clients" element={<OurClient />} />
                   <Route path="/ourclients" element={<OurClient />} />
                 </Routes>
               </div>
