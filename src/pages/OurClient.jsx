@@ -28,7 +28,8 @@ const OurClient = () => {
     );
   }
 
-  const backgroundImage = companyWebsiteImg;
+  const backgroundImage = getImageUrl(client?.Bg_Image) || companyWebsiteImg;
+
   const logos = Array.isArray(client?.Clients_logo) ? client.Clients_logo : [];
 
   return (
