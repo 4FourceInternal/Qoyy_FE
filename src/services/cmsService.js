@@ -71,7 +71,7 @@ const fetchContent = async (endpoint, cacheKey) => {
  if (endpoint === '/something') {
   // code
 } else if (endpoint === '/client') {
-  populateParam = 'populate[Clients_logo][populate]=Client_image';
+  populateParam = 'populate[Clients_logo][populate][Client_image]=true&populate[Bg_Image]=true';
 }
 
     try {
